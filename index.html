@@ -15,7 +15,7 @@
 <!-- header section starts-->
 
 <header class="header">
-    <a href="#home" class="logo"><span>Logit</span>X</a>
+    <img src="./img/logitX_black.png">
 
     <nav class="navbar">
         <a href="#home">Home</a>
@@ -61,9 +61,13 @@
     </h1>
     <div class="row">
         <div class="image">
-            <img src="service_ss.png" alt="">
+            <img src="./img/service_ss.png" alt="">
         </div>
         <div class=" content">
+            <h1>
+                About Us:
+
+            </h1>
         <p>At LogitX, we are transforming the logistics industry by connecting businesses with the right
             logistics partners through a seamless, efficient, and technology-driven platform. Headquartered
             in Mysuru, Karnataka, LogitX serves as a comprehensive logistics aggregator, helping
@@ -73,13 +77,13 @@
             multi-temperature control, real-time tracking, and customized loading and unloading solutions.
             With LogitX, businesses can easily explore, compare, and select logistics services that perfectly
             fit their needs</p>
-        <p><b>Our Vision:</b></p>
+        <h1><b>Our Vision:</b></h1>
         <p>To become the leading logistics aggregator, revolutionizing the global supply chain ecosystem
             by fostering seamless connectivity and operational efficiency</p> 
-            <p>
+            <h1>
                 Our Mission:
 
-            </p>
+            </h1>
             <p>
                 To simplify logistics for businesses by providing an innovative platform that enables quick,
 reliable, and tailored solutions
@@ -90,7 +94,15 @@ reliable, and tailored solutions
 </section>
 
 
+<section class="Testimonials " id="Testimonials ">
+    <h1 class="heading" style="color: var(--main-color);">Testimonials
+    </h1>
+    <div class="content">
+        <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus, dignissimos consectetur dolorum quasi debitis et! Eligendi omnis vitae quia? Similique aliquam officiis sed repellat natus repudiandae voluptates impedit mollitia vel?<span> </span></h3>
+    </div>
+    
 
+</section>
 <section class="about" id="about2">
     <h1 class="heading"><span>Reliable Truck Rentals </span></h1>
     <center>
@@ -353,6 +365,10 @@ background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
     margin-left: 2rem;
     text-decoration: none;
 }
+.header  img{
+    width: auto;
+    height: 60px;
+}
 .header .navbar a:hover
 {
     color: var(--main-color);
@@ -373,9 +389,10 @@ background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
 .home
 {
     padding: 2rem 9%;
-    background: url(homeBG3.jpg);
+    background: url(./img/bGHome2.jpg);
     background-size: cover;
     height: 800px;
+    
 }
 .home .content
 {
@@ -471,7 +488,7 @@ background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
     color: #000;
     line-height: 1.8;
 }
-.about{
+.about,.Testimonials{
     background-color: #fff;
     border-bottom: 1px solid #a2aaf0;
 }
@@ -481,7 +498,7 @@ background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
     align-items: center;
     flex-wrap: wrap;
     gap: 1.5rem;
-    background-color: #A2AAF0;
+    background-color: #e2e4f8;
     border-radius: 24px;
     padding: 20px;
 }
@@ -503,7 +520,7 @@ background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
 {
 
     flex: 1 1 45rem;
-    background: #a2aaf0;
+    background: #e2e4f8;
     padding: 10px 20px;
     border-radius: 24px;
 
@@ -520,6 +537,14 @@ background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
     padding: 1rem 0;
     line-height: 2;
     font-weight: bold;
+}
+.about .row .content h1{
+    font-size: 2rem;
+    font-weight: 600;
+    background: #949ee35e;
+    padding: 10px;
+    border-radius: 16px;
+
 }
 .about .row .content p span
 {
@@ -753,6 +778,7 @@ background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
 .footer
 {
     background: #ced3ff;
+    font-family: sans-serif;
 }
 .footer .box-container
 {
@@ -762,7 +788,7 @@ background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
 }
 .footer .box-container .box h3
 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     padding: 1rem 0;
     color: #000;
 }
