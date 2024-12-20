@@ -39,13 +39,6 @@
 
 </header>
 
-
-
-
-<!-- header section ends-->
-
-<!---home section starts-->
-
 <section class="home" id="home">
     <div class="content">
         <h3>Find the Perfect Logistics Partner in Minutes<span> </span></h3>
@@ -93,11 +86,6 @@ reliable, and tailored solutions
     </div>
    
 </section>
-
-
-
-
-
 <section class="logitx-logistics" id="logitx-logistics">
     <h1 class="heading"><span>One App for All Your Logistics Needs
     </span></h1>
@@ -129,14 +117,6 @@ reliable, and tailored solutions
     </div>
   </div>
 </section>
-  
-
-
-
-<!--about section end-->
-
-<!--home section end-->
-
 <section class="partner" id="partner">
     <h1 class="heading">Our Trusted Partners</h1>
     <div class="partners-section">
@@ -158,7 +138,7 @@ reliable, and tailored solutions
 <br>
     <h1 class="heading">Our <span>Service</span></h1>
     <div class="box-container">
-        <div class="box">
+        <div class="box" style="--clr:#0f0;">
             <i class="fas fa-map-marker-alt"></i>
             <h3>Real-Time Tracking Service</h3>
             <p>VRL Logistics</p>
@@ -168,7 +148,7 @@ reliable, and tailored solutions
             <p>Safexpress</p>
         </div>
 
-        <div class="box">
+        <div class="box" style="--clr:#ff0;">
             <i class="fas fa-envelope"></i>
             <h3>Customized and Partial Loading Services</h3>
             <p>VRL Logistics</p>
@@ -177,7 +157,7 @@ reliable, and tailored solutions
             <p>DHL Supply Chain India</p>
             <p>Mahindra Logistics</p>
         </div>
-        <div class="box">
+        <div class="box" style="--clr:#0ff;">
             <i class="fas fa-map-marker-alt"></i>
             <h3>Multimodal Transportation Services</h3>
             <p>Allcargo Logistics</p>
@@ -188,7 +168,18 @@ reliable, and tailored solutions
         </div>
        
     </div>
+<script>
+    let cards=document.querySelectorAll(".box");
+    cards.forEach(card=>{
+        card.onmousemove= function(e){
+            let x=e.pageX - card.offsetLeft;
+            let y=e.pageY - card.offsetTop;
 
+            card.style.setProperty('--x', x +'px');
+            card.style.setProperty('--y', y +'px');
+        }
+    });
+</script>
 </section>
 
 <!--service section end-->
@@ -316,10 +307,6 @@ reliable, and tailored solutions
 </section>
 
 <!--footer section end-->
-
-
-
-
 <style>
     :root
 {
@@ -533,14 +520,36 @@ background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
 }
 .service .box-container .box
 {
-    border-radius: 0.5rem;
-    background: #A2AAF0;
+    border-radius:16px;
+    background: rgba(45, 45, 45, 0.1);
     text-align: center;
     padding: 2.5rem;
+    overflow: hidden;
+    position: relative;
     transition: .5s;
 }
-.service .box-container .box:hover{
-    transform: translateY(-8px);
+.service .box-container .box::before{
+    content: ' ';
+    position: absolute;
+    top: var(--y);
+    left: var(--x);
+    transform: translate(-50%,-50%);
+    background: radial-gradient(var(--clr),transparent,transparent);
+    width: 400px;
+    height: 400px;
+    opacity: 0;
+    transition: 0.5s,top 0s,left 0s;
+}
+.service .box-container .box:hover::before{
+    /* transform: translateY(-8px); */
+    opacity: 0.5;
+}
+.service .box-container .box::after{
+    content: ' ';
+    position: absolute;
+    inset: 2px;
+    border-radius: 16px;
+    background: rgba(45, 45, 45, 0.1);
 }
 .service .box-container .box i
 {
