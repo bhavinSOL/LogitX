@@ -194,7 +194,7 @@ reliable, and tailored solutions
         </div>
     
         <div class="review-item">
-          <p>"We were struggling with shipment delays until we started using LogitX. Their real-time tracking feature ensures we’re always in the loop!"</p>
+          <p>"We were struggling with shipment delays until we started using LogitX. Their real-time tracking feature ensures we're always in the loop!"</p>
           <h4>&#8211; Sneha Iyer, Operations Manager, GreenLeaf Organics</h4>
         </div>
     
@@ -209,7 +209,7 @@ reliable, and tailored solutions
         </div>
     
         <div class="review-item">
-          <p>"LogitX offers an unparalleled level of convenience. We’ve saved time, money, and effort, allowing us to focus on scaling our business."</p>
+          <p>"LogitX offers an unparalleled level of convenience. We've saved time, money, and effort, allowing us to focus on scaling our business."</p>
           <h4>&#8211; Rajesh Bhatia, Founder, TechAxis</h4>
         </div>
     
@@ -255,16 +255,16 @@ reliable, and tailored solutions
 
 <section class="contact" id="contact">
     <h1 class="heading"> <span>Contact Us</span></h1>
-    <form action="" class="">
+    <form id="contact-form" class="">
         <div class="inputBox">
-            <input type="text" placeholder="name">
-            <input type="email" placeholder="email">
+            <input type="text" id="name" placeholder="name" required>
+            <input type="email" id="email" placeholder="email" required>
         </div>
         <div class="inputBox">
-            <input type="number" placeholder="number">
-            <input type="text" placeholder="subject">
+            <input type="number" id="number" placeholder="number" required>
+            <input type="text" id="subject" placeholder="subject" required>
         </div>
-        <textarea name="" placeholder="your message" id="" cols="30" rows="10"></textarea>
+        <textarea name="message" id="message" placeholder="your message" cols="30" rows="10" required></textarea>
         <input type="submit" value="send message" class="btn">
     </form>
 </section>
@@ -1280,6 +1280,104 @@ var swiper = new Swiper(".review-slider",{
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 <script src="script.js"></script>
 
+<!-- Add EmailJS SDK before closing body tag -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>
+    // Initialize EmailJS with your public key
+    (function() {
+        emailjs.init("A8s9oN3p8X8Fb14jd");
+    })();
+
+    // Handle form submission
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // Get form data
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const number = document.getElementById('number').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
+
+        // Prepare template parameters
+        const templateParams = {
+            to_name: 'Developer',
+            to_email: 'djbhavinparmar123@gmail.com',
+            from_name: name,
+            from_email: email,
+            phone_number: number,
+            subject: subject,
+            message: message,
+            reply_to: email
+        };
+
+        // Show loading state
+        const submitButton = event.target.querySelector('input[type="submit"]');
+        const originalText = submitButton.value;
+        submitButton.value = 'Sending...';
+        submitButton.disabled = true;
+
+        // Log the parameters being sent
+        console.log('Sending email with parameters:', templateParams);
+
+        // Send email using EmailJS
+        emailjs.send('service_vcsba0e', 'template_oy1olhu', templateParams)
+            .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+                alert('Message sent successfully! Check your email.');
+                document.getElementById('contact-form').reset();
+            }, function(error) {
+                console.error('FAILED...', error);
+                console.error('Error details:', {
+                    status: error.status,
+                    text: error.text,
+                    params: templateParams
+                });
+                alert('Failed to send message. Error: ' + error.text);
+            })
+            .finally(function() {
+                // Reset button state
+                submitButton.value = originalText;
+                submitButton.disabled = false;
+            });
+
+
+            emailjs.send('service_vcsba0e', 'template_nq17c2n', templateParams)
+            .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+                // alert('Message sent successfully! Check your email.');
+                document.getElementById('contact-form').reset();
+            }, function(error) {
+                console.error('FAILED...', error);
+                console.error('Error details:', {
+                    status: error.status,
+                    text: error.text,
+                    params: templateParams
+                });
+                // alert('Failed to send message. Error: ' + error.text);
+            })
+            .finally(function() {
+                // Reset button state
+                submitButton.value = originalText;
+                submitButton.disabled = false;
+            });
+
+
+
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
 
 </body>
 </html>
+service_vcsba0e
